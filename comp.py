@@ -6,7 +6,7 @@ plt.style.use('bmh')
 #pd.options.display.float_format = '{:,.2f}'.format
 
 compare = pd.read_csv("mardata.csv")
-#print(compare.head())  # Show first 5 rows)
+print(compare.head())  # Show first 5 rows)
 #print(compare.columns)
 
 #This part is defining all the variables for each indicator
