@@ -20,7 +20,7 @@ tvy = compare['% married F [15-19]']
 #plt.ylabel('Indicators', fontsize=16)
 #plt.bar(x, y1)
 
-#Line graphs
+#Line graph
 #This labels the axix's and the graph
 plt.title('Compare')
 plt.xlabel('2010', fontsize=10)
