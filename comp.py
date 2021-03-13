@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+#pandas.tools.plotting
+import numpy as np
+import scipy.stats
 plt.style.use('bmh')
 
 # Reduce decimal points to 2
@@ -33,3 +36,8 @@ plt.plot(x, tvy, marker='o', label='female marriage rate')
 #This shows what each line represents
 plt.legend()
 plt.show()
+'''
+pd.tools.plotting.scatter_matrix(compare.loc[:, "School enrollment, tertiary, female (% gross)":"School enrollment, primary, male (% gross)"], diagonal="kde")
+plt.tight_layout()
+plt.show()
+'''
