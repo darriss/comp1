@@ -1,12 +1,11 @@
+
 import matplotlib.pyplot as plt
+#import seaborn as sns
 import pandas as pd
 #pandas.tools.plotting
 import numpy as np
 import scipy.stats
 plt.style.use('bmh')
-
-# Reduce decimal points to 2
-#pd.options.display.float_format = '{:,.2f}'.format
 
 compare = pd.read_csv("mardata.csv")
 print(compare.head())  # Show first 5 rows)
@@ -34,6 +33,8 @@ plt.plot(x, y2, marker='o', label='female completion')
 plt.plot(x, tvx, marker='o', label='male marriage rate')
 plt.plot(x, tvy, marker='o', label='female marriage rate')
 #This shows what each line represents
+pd.tools.plotting.scatter_matrix(data.loc[:, y2:tvy], diagonal="kde")
+plt.tight_layout()
 plt.legend()
 plt.show()
 '''
