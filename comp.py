@@ -1,12 +1,15 @@
-
 import matplotlib.pyplot as plt
-#import seaborn as sns
+import seaborn as sns
 import pandas as pd
-#pandas.tools.plotting
 import numpy as np
 import scipy.stats
+from sklearn.preprocessing import scale
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from scipy import stats
+from IPython.display import display, HTML
 plt.style.use('bmh')
-
+from pandas.plotting import scatter_matrix
 compare = pd.read_csv("mardata.csv")
 print(compare.head())  # Show first 5 rows)
 #print(compare.columns)
@@ -33,12 +36,12 @@ plt.plot(x, y2, marker='o', label='female completion')
 plt.plot(x, tvx, marker='o', label='male marriage rate')
 plt.plot(x, tvy, marker='o', label='female marriage rate')
 #This shows what each line represents
-pd.tools.plotting.scatter_matrix(data.loc[:, y2:tvy], diagonal="kde")
+#pd.tools.plotting.scatter_matrix(data.loc[:, y2:tvy], diagonal="kde")
+'''
 plt.tight_layout()
 plt.legend()
 plt.show()
 '''
-pd.tools.plotting.scatter_matrix(compare.loc[:, "School enrollment, tertiary, female (% gross)":"School enrollment, primary, male (% gross)"], diagonal="kde")
+pd.plotting.scatter_matrix(compare.loc[:, "School enrollment, tertiary, female (% gross)":"% married F [15-19]"], diagonal="kde")
 plt.tight_layout()
 plt.show()
-'''
