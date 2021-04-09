@@ -11,20 +11,50 @@ from IPython.display import display, HTML
 plt.style.use('bmh')
 from pandas.plotting import scatter_matrix
 compare = pd.read_csv("mardata.csv")
-print(compare.head())  # Show first 5 rows)
+meeting = pd.read_csv("meetingstats.csv")
+print(meeting.head())  # Show first 5 rows)
 #print(compare.columns)
 
-#This part is defining all the variables for each indicator
+#This part is defining all the variables for each indicator in education data
 x = compare['Years']
 y1 = compare['Lower secondary completion rate, male (% of relevant age group)']
 y2 = compare['Lower secondary completion rate, female (% of relevant age group)']
 tvx = compare['% married M [15-19]']
 tvy = compare['% married F [15-19]']
+#This part is defining all the variables for each indicator in meeting in marriage data
+xm = meeting['Circumstance of Meeting']
+casa = meeting['Casablanca']
+tan = meeting['Tangier']
+'''
 #Bar graph
-#plt.xlabel('2010', fontsize=4)
-#plt.ylabel('Indicators', fontsize=16)
-#plt.bar(x, y1)
+plt.title('Circumstance of Meeting')
+plt.xlabel('How they Met', fontsize=4)
+plt.ylabel('Percentage', fontsize=16)
+plt.bar(xm, casa)
+plt.bar(xm, tan)
+'''
+labels = ['Family Meeting', 'Blind Engagement', 'Place of Study', 'Workplace']
+casa_means = [13.9, 5.9, 6.6, 16]
+tan_means = [23.2, 1.2, 8.3, 7.5]
 
+x = np.arange(len(labels))  # the label locations
+width = 0.35  # the width of the bars
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(x - width/2, casa_means, width, label='Casablanca')
+rects2 = ax.bar(x + width/2, tan_means, width, label='Tangier')
+
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_ylabel('Percentage (%)')
+ax.set_title('Circumstance of Meeting in 2011')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+fig.tight_layout()
+
+plt.show()
+'''
 #Line graph
 #This labels the axix's and the graph
 plt.title('Compare')
@@ -37,11 +67,11 @@ plt.plot(x, tvx, marker='o', label='male marriage rate')
 plt.plot(x, tvy, marker='o', label='female marriage rate')
 #This shows what each line represents
 #pd.tools.plotting.scatter_matrix(data.loc[:, y2:tvy], diagonal="kde")
-'''
-plt.tight_layout()
-plt.legend()
-plt.show()
+
 '''
 pd.plotting.scatter_matrix(compare.loc[:, "School enrollment, tertiary, female (% gross)":"% married F [15-19]"], diagonal="kde")
 plt.tight_layout()
 plt.show()
+
+#ax = compare[["V2","V3","V4","V5","V6"]].plot()
+#ax.legend(loc='center left', bbox_to_anchor=(1, 0.5));
