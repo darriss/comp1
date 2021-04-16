@@ -36,7 +36,7 @@ plt.bar(xm, tan)
 labels = ['Family Meeting', 'Blind Engagement', 'Place of Study', 'Workplace']
 casa_means = [13.9, 5.9, 6.6, 16]
 tan_means = [23.2, 1.2, 8.3, 7.5]
-
+'''
 x = np.arange(len(labels))  # the label locations
 width = 0.35  # the width of the bars
 
@@ -68,7 +68,7 @@ plt.plot(x, tvy, marker='o', label='female marriage rate')
 #This shows what each line represents
 #pd.tools.plotting.scatter_matrix(data.loc[:, y2:tvy], diagonal="kde")
 
-'''
+
 pd.plotting.scatter_matrix(compare.loc[:, "School enrollment, tertiary, female (% gross)":"% married F [15-19]"], diagonal="kde")
 plt.tight_layout()
 plt.show()
