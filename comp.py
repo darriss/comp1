@@ -73,5 +73,11 @@ pd.plotting.scatter_matrix(compare.loc[:, "School enrollment, tertiary, female (
 plt.tight_layout()
 plt.show()
 
-#ax = compare[["V2","V3","V4","V5","V6"]].plot()
-#ax.legend(loc='center left', bbox_to_anchor=(1, 0.5));
+print('y1 mean:', np.mean(y1))
+print('y1 standard deviation:', np.std(y1))
+
+print('covariance y1 and tvx', np.cov(y1, tvx))
+
+# use pearson correlation if there is a linear relationship between variables
+# use spearman correlation if the relationship is non-linear
+print('correlation y1 and tvx', scipy.stats.spearmanr(y1, tvx))
