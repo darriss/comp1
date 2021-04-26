@@ -20,7 +20,6 @@ x1 = compare['School enrollment, tertiary, female (% gross)']
 y2 = compare['Lower secondary completion rate, male (% of relevant age group)']
 x2 = compare['Lower secondary completion rate, female (% of relevant age group)']
 md = compare['Number of maternal deaths']
-sepsis = compare['Death by sepsis and other infections for children under 5 %']
 anomaly = compare['Death by congenital anomalies under 5 years old %']
 laborx = compare['Labor force participation rate, female (% of female population ages 15+) (modeled ILO estimate)']
 labory = compare['Labor force participation rate for ages 15-24, male (%) (national estimate)']
@@ -57,9 +56,10 @@ plt.show()
 
 #Line graph section
 #This labels the axix's and the graph
-plt.title('Congenital Anomaly Death Rate of Children Ages (0-4) in Morocco')
+plt.title('Maternal Death Rate in Morocco')
 plt.xlabel('Years', fontsize=10)
-plt.ylabel('Percentage %', fontsize=10)
+plt.ylabel('Number', fontsize=10)
+
 #These are each of the plots llalong the x axis
 plt.plot(x, x1, marker='o', label='female college enrollment rate')
 plt.plot(x, y1, marker='o', label='male college enrollment rate')
@@ -74,6 +74,8 @@ plt.plot(x, y2, marker='o', label='male middle completion school')
 plt.plot(x, x2, marker='o', label='female middle completion school')
 plt.plot(x, tvy, marker='o', label='male marriage rate (15-19)')
 plt.plot(x, tvx, marker='o', label='female marriage rate (15-19)')
+
+plt.plot(x, md, marker='o', label='Maternal Death Rate')
 plt.legend(loc='best')
 plt.show()
 
